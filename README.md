@@ -1,20 +1,12 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# Azure  Container App Java Agent Tests Samples
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+- This repository contains examples for Azure Container App Java Agent integration testing and changing log levels.
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+##  All examples of changing log levels in this repository
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
-
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+|             | Logback                                                              | Log4j2                                                                                                                                                                                                                          | Log4j                                                                                                 | Java Util Logging                                                |
+|-------------|----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
+| Spring Boot | [spring-boot-logback](ACA-Java-Agent-Log-Level/spring-boot-logback)  | [spring-boot-log4j2](ACA-Java-Agent-Log-Level/spring-boot-log4j2)                                                                                                                                                               | [spring-boot-log4j](ACA-Java-Agent-Log-Level/spring-boot-log4j)                                       | [spring-boot-jul](ACA-Java-Agent-Log-Level/spring-boot-jul)      |
+| Spring      | [spring-logback](ACA-Java-Agent-Log-Level/spring-logback)            | [spring-log4j2](ACA-Java-Agent-Log-Level/spring-log4j2)                                                                                                                                                                         | [spring-log4j](ACA-Java-Agent-Log-Level/spring-log4j)                                                 | [spring-jul](ACA-Java-Agent-Log-Level/spring-jul)                |
+| Quarkus     | [quarkus-logback](ACA-Java-Agent-Log-Level/quarkus-logback)          | According to issue [Logging Log4J 2](https://github.com/quarkusio/quarkus/issues/19035) and [Support log4j2 handlers with the Quarkus logging system](https://github.com/quarkusio/quarkus/issues/11508) are not supported yet. | Related extension not found in this [document](https://docs.quarkiverse.io/index/explore/index.html). | [quarkus-jul](ACA-Java-Agent-Log-Level/quarkus-jul)              |
+| Java        | [java-logback](ACA-Java-Agent-Log-Level/java-logback)                | [java-log4j2](ACA-Java-Agent-Log-Level/java-log4j2)                                                                                                                                                                             | [java-log4j](ACA-Java-Agent-Log-Level/java-log4j)                                                     | [java-jul](ACA-Java-Agent-Log-Level/java-jul)                    |
