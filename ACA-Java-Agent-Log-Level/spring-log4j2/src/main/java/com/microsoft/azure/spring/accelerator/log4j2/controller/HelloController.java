@@ -15,7 +15,7 @@ public class HelloController {
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String printHello(ModelMap model) {
         model.addAttribute("message", "Hello world!");
-        logger.debug("Hello world");
+        logger.debug("Hello world, spring-log4j2, jdk 21");
         return "hello";
     }
 
