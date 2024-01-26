@@ -1,4 +1,5 @@
 FROM maven:3.8.1-jdk-11 as maven-builder
+RUN ls -la
 COPY src /demo/src
 COPY pom.xml /demo
 RUN mvn -f /demo/pom.xml clean package -DskipTests
