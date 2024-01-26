@@ -1,17 +1,18 @@
-FROM openjdk:11-jdk-alpine as build
+FROM maven:3.8.1-jdk-11 as maven-builder
+COPY src /demo/src
+COPY pom.xml /demo
+RUN mvn -f /demo/pom.xml clean package -DskipTests
+
+FROM maven:3-eclipse-temurin-11-alpine
+WORKDIR /app
 
 # copy arthas
 COPY --from=hengyunabc/arthas:latest /opt/arthas /opt/arthas
+COPY --from=maven-builder demo/target/quarkus-app/quarkus-run.jar /app/target/quarkus-app/quarkus-run.jar
 
 RUN apk add wget unzip tcpdump ngrep iproute2-ss bind-tools
 
-RUN mvn clean install -DskipTests
-
-WORKDIR /app
-
 COPY ./ ./
-
-COPY  ./target/quarkus-app/quarkus-run.jar /app/target/quarkus-app/quarkus-run.jar
 
 RUN wget https://huiagentaccount.blob.core.windows.net/ja-agent/ja-agent.jar
 
