@@ -1,4 +1,4 @@
-FROM maven:3-eclipse-temurin-11-alpine as build
+FROM openjdk:11-jdk-alpine as build
 
 # copy arthas
 COPY --from=hengyunabc/arthas:latest /opt/arthas /opt/arthas
