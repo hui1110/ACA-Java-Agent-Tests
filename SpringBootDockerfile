@@ -1,7 +1,7 @@
 FROM maven:3.8.1-jdk-8 as maven-builder
 ARG PROJECT_NAME
 ENV PROJECT_NAME=${PROJECT_NAME}
-COPY .. /app
+COPY . /app
 WORKDIR /app
 RUN mvn clean install -pl ACA-Java-Agent-Log-Level/${PROJECT_NAME} -DskipTests
 
