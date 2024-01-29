@@ -46,7 +46,7 @@
     },
     "containerImage": {
       "type": "string",
-      "defaultValue": "[concat(concat(parameters('containerRegistryName'), '.azurecr.io/', 'asa-agent', ':quarkus-logback'))]",
+      "defaultValue": "[concat(concat(parameters('containerRegistryName'), '.azurecr.io/', parameters('containerRegistryName'), '/asa-agent:quarkus-logback'))]",
       "metadata": {
         "description": "Specifies the docker container image to deploy."
       }
