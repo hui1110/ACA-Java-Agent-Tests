@@ -16,7 +16,7 @@ public class HelloController {
     public String printHello(ModelMap model) {
         model.addAttribute("message", "Hello world!");
         logger.debug("Hello world");
-        return "hello";
+        return "hello, spring logback!";
     }
 
 }
