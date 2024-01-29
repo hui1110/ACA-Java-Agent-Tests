@@ -46,7 +46,7 @@
     },
     "projectName": {
       "type": "string",
-      "defaultValue": "[format('app-{0}', resourceGroup().name)]",
+      "defaultValue": "springboot-logback",
       "metadata": {
         "description": "Specifies the name of the container app."
       }
