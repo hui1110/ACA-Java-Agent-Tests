@@ -8,12 +8,9 @@ RUN mvn clean install -pl ACA-Java-Agent-Log-Level/${PROJECT_NAME} -DskipTests
 FROM tomcat:8.5-jdk8-openjdk
 ARG PROJECT_NAME
 ENV PROJECT_NAME=${PROJECT_NAME}
-COPY --from=maven-builder app/ACA-Java-Agent-Log-Level/${PROJECT_NAME}/target/*.war app.war
 RUN rm -fr /usr/local/tomcat/webapps/*
-ADD app.war /usr/local/tomcat/webapps/ROOT.war
-
-RUN wget -O agent.jar https://huiagentaccount.blob.core.windows.net/ja-agent/ja-agent.jar
-ADD agent.jar /usr/local/tomcat/agent/agent.jar
+COPY --from=maven-builder /app/ACA-Java-Agent-Log-Level/${PROJECT_NAME}/target/*.war /usr/local/tomcat/webapps/ROOT.war
+RUN mkdir /usr/local/tomcat/agent && wget -O agent.jar https://huiagentaccount.blob.core.windows.net/ja-agent/ja-agent.jar && cp agent.jar /usr/local/tomcat/agent/
 ADD setenv.sh /usr/local/tomcat/bin/setenv.sh
 RUN chmod +x /usr/local/tomcat/bin/setenv.sh
 
