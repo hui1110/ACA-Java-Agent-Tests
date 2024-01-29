@@ -12,7 +12,7 @@ public class HelloController {
 
     @GetMapping("/hello")
     public String hello() {
-        LOGGER.debug("hello world");
+        LOGGER.debug("hello world, Spring logback.");
         return "Hello world";
     }
 
