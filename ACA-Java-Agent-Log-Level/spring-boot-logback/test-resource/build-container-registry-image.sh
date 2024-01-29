@@ -2,6 +2,8 @@
 
 set -Eeuo pipefail
 
+pwd
+
 cp -f ../../../spring-boot-docker/Dockerfile ../../../Dockerfile
 
 az acr login --name $ACR_NAME  --expose-token
