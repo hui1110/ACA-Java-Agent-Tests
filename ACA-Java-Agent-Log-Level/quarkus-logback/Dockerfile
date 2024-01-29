@@ -4,7 +4,7 @@ COPY src /demo/src
 COPY pom.xml /demo
 RUN mvn -f /demo/pom.xml clean package -DskipTests
 RUN ls -la /demo/target/quarkus-app
-COPY src0 /demo/src
+src0 /demo/src
 
 FROM maven:3-eclipse-temurin-11-alpine
 WORKDIR /app
