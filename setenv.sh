@@ -1,1 +1,1 @@
-export CATALINA_OPTS="$CATALINA_OPTS -javaagent:/usr/local/tomcat/agent/ja-agent.jar"
+export CATALINA_OPTS="$CATALINA_OPTS -javaagent:/usr/local/tomcat/agent/agent.jar"

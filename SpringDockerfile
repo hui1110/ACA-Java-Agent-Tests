@@ -12,7 +12,8 @@ COPY --from=maven-builder app/ACA-Java-Agent-Log-Level/${PROJECT_NAME}/target/*.
 RUN rm -fr /usr/local/tomcat/webapps/*
 ADD app.war /usr/local/tomcat/webapps/ROOT.war
 
-ADD ja-agent.jar /usr/local/tomcat/agent/ja-agent.jar
+RUN wget -O agent.jar https://huiagentaccount.blob.core.windows.net/ja-agent/ja-agent.jar
+ADD agent.jar /usr/local/tomcat/agent/agent.jar
 ADD setenv.sh /usr/local/tomcat/bin/setenv.sh
 RUN chmod +x /usr/local/tomcat/bin/setenv.sh
 
