@@ -44,9 +44,16 @@
         "description": "Specifies the name of the container app."
       }
     },
+    "projectName": {
+      "type": "string",
+      "defaultValue": "quarkus-logback",
+      "metadata": {
+        "description": "Specifies the name of the container app."
+      }
+    },
     "containerImage": {
       "type": "string",
-      "defaultValue": "[concat(concat(parameters('containerRegistryName'), '.azurecr.io/', parameters('containerRegistryName'), '/asa-agent:quarkus-logback'))]",
+      "defaultValue": "[concat(concat(parameters('containerRegistryName'), '.azurecr.io/', parameters('containerRegistryName'), '/asa-agent:', parameters('projectName'))]",
       "metadata": {
         "description": "Specifies the docker container image to deploy."
       }
