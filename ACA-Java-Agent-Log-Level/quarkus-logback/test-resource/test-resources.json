@@ -53,7 +53,7 @@
     },
     "containerImage": {
       "type": "string",
-      "defaultValue": "[concat(concat(parameters('containerRegistryName'), '.azurecr.io/', parameters('containerRegistryName'), '/asa-agent:', parameters('projectName'))]",
+      "defaultValue": "[concat(concat(parameters('containerRegistryName'), '.azurecr.io/', parameters('containerRegistryName'), '/asa-agent:', parameters('projectName')))]",
       "metadata": {
         "description": "Specifies the docker container image to deploy."
       }
