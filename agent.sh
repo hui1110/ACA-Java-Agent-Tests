@@ -1,6 +1,27 @@
 echo 'Start to test ACA Java Agent...'
 
-cd ACA-Java-Agent-Log-Level/spring-boot-log4j2
+cd ACA-Java-Agent-Log-Level/quarkus-logback
+
+az group create -l eastus -n acaquarkuslogback
+
+echo '---Quarkus logback resource group created---'
+
+az deployment group create --name arm-deployment --resource-group acaquarkuslogback --template-file test-resource/test-resources.json --parameters projectName=quarkus-logback
+
+echo '---Quarkus logback resource created---'
+
+curl https://capps-azapi-rp-cca89.azurewebsites.net/subscriptions/799c12ba-353c-44a1-883d-84808ebb2216/resourcegroups/yonghui-agent-rg/providers/Microsoft.App/containerApps/yonghui-agent-container-app/setLogger?logLevel=debug&logPkgName=com.microsoft.azure.quarkus.accelerator.logback
+
+echo '---Updated Quarkus logback log level to debug---'
+
+if [ $(az containerapp logs show --name app-acaquarkuslogback --resource-group acaquarkuslogback --type console --tail 50 | grep "DEBUG" | wc -l) -gt 0 ]
+then
+   echo -e "\\e[34mQuarkus logback DEBUG log has output\\e[0m"
+else
+   echo -e "\\e[31mQuarkus logback DEBUG log no output\\e[0m"
+fi
+
+cd ../spring-boot-log4j2
 
 az group create -l eastus -n acaspringbootlog4j2
 
