@@ -10,9 +10,9 @@ az deployment group create --name arm-deployment --resource-group acaquarkuslogb
 
 echo '---Quarkus logback resource created---'
 
-curl https://capps-azapi-rp-cca89.azurewebsites.net/subscriptions/799c12ba-353c-44a1-883d-84808ebb2216/resourcegroups/yonghui-agent-rg/providers/Microsoft.App/containerApps/yonghui-agent-container-app/setLogger?logLevel=debug&logPkgName=com.microsoft.azure.quarkus.accelerator.logback
-
-echo '---Updated Quarkus logback log level to debug---'
+#curl https://capps-azapi-rp-cca89.azurewebsites.net/subscriptions/799c12ba-353c-44a1-883d-84808ebb2216/resourcegroups/yonghui-agent-rg/providers/Microsoft.App/containerApps/yonghui-agent-container-app/setLogger?logLevel=debug&logPkgName=com.microsoft.azure.quarkus.accelerator.logback
+#
+#echo '---Updated Quarkus logback log level to debug---'
 
 if [ $(az containerapp logs show --name app-acaquarkuslogback --resource-group acaquarkuslogback --type console --tail 50 | grep "DEBUG" | wc -l) -gt 0 ]
 then
@@ -31,9 +31,9 @@ az deployment group create --name arm-deployment --resource-group acaspringbootl
 
 echo '---Spring Boot log4j2 test resource created---'
 
-curl https://capps-azapi-rp-cca89.azurewebsites.net/subscriptions/799c12ba-353c-44a1-883d-84808ebb2216/resourcegroups/yonghui-agent-rg/providers/Microsoft.App/containerApps/yonghui-agent-container-app/setLogger?logLevel=debug&logPkgName=com.microsoft.azure.spring.boot.accelerator.log4j2
-
-echo '---Updated Spring Boot log4j2 log level to debug---'
+#curl https://capps-azapi-rp-cca89.azurewebsites.net/subscriptions/799c12ba-353c-44a1-883d-84808ebb2216/resourcegroups/yonghui-agent-rg/providers/Microsoft.App/containerApps/yonghui-agent-container-app/setLogger?logLevel=debug&logPkgName=com.microsoft.azure.spring.boot.accelerator.log4j2
+#
+#echo '---Updated Spring Boot log4j2 log level to debug---'
 
 if [ $(az containerapp logs show --name app-acaspringbootlog4j2 --resource-group acaspringbootlog4j2 --type console --tail 50 | grep "DEBUG" | wc -l) -gt 0 ]
 then
@@ -52,9 +52,9 @@ az deployment group create --name arm-deployment --resource-group acaspringbootl
 
 echo '---Spring Boot logback resource created---'
 
-curl https://capps-azapi-rp-cca89.azurewebsites.net/subscriptions/799c12ba-353c-44a1-883d-84808ebb2216/resourcegroups/yonghui-agent-rg/providers/Microsoft.App/containerApps/yonghui-agent-container-app/setLogger?logLevel=debug&logPkgName=com.microsoft.azure.spring.boot.accelerator.logback
-
-echo '---Updated Spring Boot logback log level to debug---'
+#curl https://capps-azapi-rp-cca89.azurewebsites.net/subscriptions/799c12ba-353c-44a1-883d-84808ebb2216/resourcegroups/yonghui-agent-rg/providers/Microsoft.App/containerApps/yonghui-agent-container-app/setLogger?logLevel=debug&logPkgName=com.microsoft.azure.spring.boot.accelerator.logback
+#
+#echo '---Updated Spring Boot logback log level to debug---'
 
 if [ $(az containerapp logs show --name app-acaspringbootlogback --resource-group acaspringbootlogback --type console --tail 50 | grep "DEBUG" | wc -l) -gt 0 ]
 then
@@ -73,9 +73,9 @@ az deployment group create --name arm-deployment --resource-group acaspringlog4j
 
 echo '---Spring log4j2 resource created---'
 
-curl https://capps-azapi-rp-cca89.azurewebsites.net/subscriptions/799c12ba-353c-44a1-883d-84808ebb2216/resourcegroups/yonghui-agent-rg/providers/Microsoft.App/containerApps/yonghui-agent-container-app/setLogger?logLevel=debug&logPkgName=com.microsoft.azure.spring.accelerator.log4j2
-
-echo '---Updated Spring log4j2 log level to debug---'
+#curl https://capps-azapi-rp-cca89.azurewebsites.net/subscriptions/799c12ba-353c-44a1-883d-84808ebb2216/resourcegroups/yonghui-agent-rg/providers/Microsoft.App/containerApps/yonghui-agent-container-app/setLogger?logLevel=debug&logPkgName=com.microsoft.azure.spring.accelerator.log4j2
+#
+#echo '---Updated Spring log4j2 log level to debug---'
 
 if [ $(az containerapp logs show --name app-acaspringlog4j2 --resource-group acaspringlog4j2 --type console --tail 50 | grep "DEBUG" | wc -l) -gt 0 ]
 then
@@ -94,9 +94,9 @@ az deployment group create --name arm-deployment --resource-group acaspringlogba
 
 echo '---Spring logback resource created---'
 
-curl https://capps-azapi-rp-cca89.azurewebsites.net/subscriptions/799c12ba-353c-44a1-883d-84808ebb2216/resourcegroups/yonghui-agent-rg/providers/Microsoft.App/containerApps/yonghui-agent-container-app/setLogger?logLevel=error&logPkgName=com.microsoft.azure.spring.accelerator.logback
-
-echo '---Updated Spring logback log level to debug---'
+#curl https://capps-azapi-rp-cca89.azurewebsites.net/subscriptions/799c12ba-353c-44a1-883d-84808ebb2216/resourcegroups/yonghui-agent-rg/providers/Microsoft.App/containerApps/yonghui-agent-container-app/setLogger?logLevel=debug&logPkgName=com.microsoft.azure.spring.accelerator.logback
+#
+#echo '---Updated Spring logback log level to debug---'
 
 if [ $(az containerapp logs show --name app-acaspringlogback --resource-group acaspringlogback --type console --tail 50 | grep "DEBUG" | wc -l) -gt 0 ]
 then

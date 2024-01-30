@@ -315,11 +315,5 @@
         "[resourceId('Microsoft.App/managedEnvironments', parameters('containerAppEnvName'))]"
       ]
     }
-  ],
-  "outputs": {
-    "containerAppFQDN": {
-      "type": "string",
-      "value": "[reference(resourceId('Microsoft.App/containerApps', parameters('containerAppName')), '2022-10-01').latestRevisionFqdn]"
-    }
-  }
+  ]
 }
