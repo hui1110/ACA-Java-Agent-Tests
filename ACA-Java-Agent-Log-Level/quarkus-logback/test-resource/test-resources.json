@@ -197,6 +197,10 @@
           {
             "name": "ACR_NAME",
             "value": "[parameters('containerRegistryName')]"
+          },
+          {
+            "name": "PROJECT_NAME",
+            "value": "[parameters('projectName')]"
           }
         ],
         "cleanupPreference": "OnSuccess",

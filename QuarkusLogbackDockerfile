@@ -1,0 +1,23 @@
+FROM maven:3.8.1-jdk-11 as maven-builder
+ARG PROJECT_NAME
+ENV PROJECT_NAME=${PROJECT_NAME}
+COPY . /app
+WORKDIR /app
+RUN mvn clean install -pl ACA-Java-Agent-Log-Level/${PROJECT_NAME} -DskipTests
+
+FROM maven:3-eclipse-temurin-11-alpine
+WORKDIR /app
+ARG PROJECT_NAME
+ENV PROJECT_NAME=${PROJECT_NAME}
+# copy arthas
+COPY --from=hengyunabc/arthas:latest /opt/arthas /opt/arthas
+COPY --from=maven-builder app/ACA-Java-Agent-Log-Level/${PROJECT_NAME}/target/quarkus-app/quarkus-run.jar /app-service/target/quarkus-app/quarkus-run.jar
+
+RUN apk add wget unzip tcpdump ngrep iproute2-ss bind-tools
+
+COPY ./ ./
+
+RUN wget https://huiagentaccount.blob.core.windows.net/ja-agent/ja-agent.jar
+
+ENTRYPOINT ["sh", "-c"]
+CMD ["java -javaagent:ja-agent.jar -Xms256m -Xmx256m -jar /app-service/target/quarkus-app/quarkus-run.jar"]
