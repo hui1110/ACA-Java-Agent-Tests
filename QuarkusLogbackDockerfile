@@ -40,4 +40,4 @@ RUN if echo $PROJECT_NAME | grep -q "aca-otlp" ; then \
 
 ENTRYPOINT ["sh", "-c"]
 
-CMD ${ACA_COMMAND_LINE}
+CMD [${ACA_COMMAND_LINE}]
