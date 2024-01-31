@@ -10,6 +10,7 @@ export PROJECT_NAME_JAVA_21_ACA_AI="quarkus-logback-21-aca-ai"
 export PROJECT_NAME_JAVA_11_ACA_OTLP="quarkus-logback-11-aca-otlp"
 export PROJECT_NAME_JAVA_17_ACA_OTLP="quarkus-logback-17-aca-otlp"
 export PROJECT_NAME_JAVA_21_ACA_OTLP="quarkus-logback-21-aca-otlp"
+export ACA_COMMAND_LINE="["java -javaagent:agent-0.0.1-SNAPSHOT.jar -Xms256m -Xmx256m -jar /app-service/target/quarkus-logback-1.0.0-runner.jar"]"
 
 cd ACA-Java-Agent-Log-Level/quarkus-logback
 
@@ -17,7 +18,7 @@ az group create -l eastus -n $QUARKUS_LOGBACK_RESOURCE_GROUP
 echo '---Quarkus logback resource group created---'
 
 # ------------------------quarkus-logback-17-aca------------------------
-az deployment group create --name arm-deployment --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --template-file test-resource/test-resources.json --parameters projectName=$PROJECT_NAME_JAVA_11_ACA
+az deployment group create --name arm-deployment --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --template-file test-resource/test-resources.json --parameters projectName=$PROJECT_NAME_JAVA_11_ACA commandline=$ACA_COMMAND_LINE
 echo '---Quarkus logback resource created---'
 
 sleep 10

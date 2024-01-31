@@ -51,6 +51,13 @@
         "description": "Specifies the name of the container app."
       }
     },
+    "commandline": {
+      "type": "string",
+      "defaultValue": "commandline",
+      "metadata": {
+        "description": "Specifies the name of the container app."
+      }
+    },
     "containerImage": {
       "type": "string",
       "defaultValue": "[concat(concat(parameters('containerRegistryName'), '.azurecr.io/', parameters('containerRegistryName'), '/asa-agent:', parameters('projectName')))]",
@@ -201,6 +208,10 @@
           {
             "name": "PROJECT_NAME",
             "value": "[parameters('projectName')]"
+          },
+          {
+            "name": "ACA_COMMAND_LINE",
+            "value": "[parameters('commandline')]"
           }
         ],
         "cleanupPreference": "OnSuccess",

@@ -18,6 +18,7 @@ RUN mvn clean install -pl ACA-Java-Agent-Log-Level/quarkus-logback -DskipTests
 FROM maven:3-eclipse-temurin-11-alpine
 WORKDIR /app
 ARG PROJECT_NAME
+ARG ACA_COMMAND_LINE
 ENV PROJECT_NAME=${PROJECT_NAME}
 # copy arthas
 COPY --from=hengyunabc/arthas:latest /opt/arthas /opt/arthas
@@ -25,22 +26,18 @@ COPY --from=maven-builder app/ACA-Java-Agent-Log-Level/quarkus-logback/target/*.
 
 RUN apk add wget unzip tcpdump ngrep iproute2-ss bind-tools
 
-COPY ./ ./
-
+COPY ./ /app-service
+WORKDIR /app-service
 RUN wget https://huiagentaccount.blob.core.windows.net/ja-agent/agent-0.0.1-SNAPSHOT.jar
 
 RUN if echo $PROJECT_NAME | grep -q "aca-otlp" ; then \
          wget https://huiagentaccount.blob.core.windows.net/opentelemetry-javaagent/opentelemetry-javaagent.jar; \
     elif echo $PROJECT_NAME | grep -q "aca-ai" ; then \
          wget https://huiagentaccount.blob.core.windows.net/applicationinsights-agent/applicationinsights-agent-3.4.19.jar; \
+    else \
+         echo "Use ASA agent."; \
     fi
 
 ENTRYPOINT ["sh", "-c"]
 
-CMD if echo $PROJECT_NAME | grep -q "aca-otlp" ; then \
-         ["java -javaagent:agent-0.0.1-SNAPSHOT.jar -javaagent:opentelemetry-javaagent.jar -Xms256m -Xmx256m -jar /app-service/target/quarkus-logback-1.0.0-runner.jar"]; \
-    elif echo $PROJECT_NAME | grep -q "aca-ai" ; then \
-         ["java -javaagent:agent-0.0.1-SNAPSHOT.jar -javaagent:applicationinsights-agent-3.4.19.jar -Xms256m -Xmx256m -jar /app-service/target/quarkus-logback-1.0.0-runner.jar"]; \
-    else \
-         ["java -javaagent:agent-0.0.1-SNAPSHOT.jar -Xms256m -Xmx256m -jar /app-service/target/quarkus-logback-1.0.0-runner.jar"]; \
-    fi
+CMD ${ACA_COMMAND_LINE}

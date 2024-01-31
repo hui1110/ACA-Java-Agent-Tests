@@ -24,4 +24,4 @@ RUN if [ "$PROJECT_NAME" = "quarkus-logback-11-aca" ] ; then \
              apk add --no-cache openjdk21 && apk add --no-cache maven=3.8.1-r0; \
     else \
         apk add --no-cache openjdk8 && apk add --no-cache maven=3.8.1-r0; \
-    fi
+    fi \
