@@ -30,14 +30,5 @@ COPY ./ /app-service
 WORKDIR /app-service
 RUN wget https://huiagentaccount.blob.core.windows.net/ja-agent/agent-0.0.1-SNAPSHOT.jar
 
-RUN if echo $PROJECT_NAME | grep -q "aca-otlp" ; then \
-         wget https://huiagentaccount.blob.core.windows.net/opentelemetry-javaagent/opentelemetry-javaagent.jar; \
-    elif echo $PROJECT_NAME | grep -q "aca-ai" ; then \
-         wget https://huiagentaccount.blob.core.windows.net/applicationinsights-agent/applicationinsights-agent-3.4.19.jar; \
-    else \
-         echo "Use ASA agent."; \
-    fi
-
 ENTRYPOINT ["sh", "-c"]
-
-CMD [${ACA_COMMAND_LINE}]
+CMD ["java -javaagent:agent-0.0.1-SNAPSHOT.jar -Xms256m -Xmx256m -jar /app-service/target/quarkus-logback-1.0.0-runner.jar"]

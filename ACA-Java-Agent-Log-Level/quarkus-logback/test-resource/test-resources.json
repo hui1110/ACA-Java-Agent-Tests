@@ -51,9 +51,9 @@
         "description": "Specifies the name of the container app."
       }
     },
-    "commandline": {
+    "dockerfile_name": {
       "type": "string",
-      "defaultValue": "commandline",
+      "defaultValue": "ACAQuarkusLogbackDockerfile",
       "metadata": {
         "description": "Specifies the name of the container app."
       }
@@ -210,8 +210,8 @@
             "value": "[parameters('projectName')]"
           },
           {
-            "name": "ACA_COMMAND_LINE",
-            "value": "[parameters('commandline')]"
+            "name": "DOCKERFILE_NAME",
+            "value": "[parameters('dockerfile_name')]"
           }
         ],
         "cleanupPreference": "OnSuccess",

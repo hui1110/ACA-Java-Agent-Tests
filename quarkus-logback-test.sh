@@ -10,6 +10,7 @@ export PROJECT_NAME_JAVA_21_ACA_AI="quarkus-logback-21-aca-ai"
 export PROJECT_NAME_JAVA_11_ACA_OTLP="quarkus-logback-11-aca-otlp"
 export PROJECT_NAME_JAVA_17_ACA_OTLP="quarkus-logback-17-aca-otlp"
 export PROJECT_NAME_JAVA_21_ACA_OTLP="quarkus-logback-21-aca-otlp"
+export DOCKERFILE_NAME="ACAQuarkusLogbackDockerfile"
 
 cd ACA-Java-Agent-Log-Level/quarkus-logback
 
@@ -17,7 +18,7 @@ az group create -l eastus -n $QUARKUS_LOGBACK_RESOURCE_GROUP
 echo '---Quarkus logback resource group created---'
 
 # ------------------------quarkus-logback-17-aca------------------------
-az deployment group create --name arm-deployment --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --template-file test-resource/test-resources.json --parameters projectName=$PROJECT_NAME_JAVA_11_ACA commandline="java -javaagent:agent-0.0.1-SNAPSHOT.jar -Xms256m -Xmx256m -jar /app-service/target/quarkus-logback-1.0.0-runner.jar"
+az deployment group create --name arm-deployment --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --template-file test-resource/test-resources.json --parameters projectName=$PROJECT_NAME_JAVA_11_ACA dockerfile_name=$DOCKERFILE_NAME
 echo '---Quarkus logback resource created---'
 
 sleep 10
@@ -36,7 +37,7 @@ fi
 
 echo -e "\\e[33m----------quarkus-logback-11-aca test done------------\\e[0m"
 # ------------------------quarkus-logback-17-aca------------------------
-az deployment group create --name arm-deployment --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --template-file test-resource/test-resources.json --parameters projectName=$PROJECT_NAME_JAVA_17_ACA
+az deployment group create --name arm-deployment --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --template-file test-resource/test-resources.json --parameters projectName=$PROJECT_NAME_JAVA_17_ACA dockerfile_name=$DOCKERFILE_NAME
 echo '---Quarkus logback resource created---'
 
 sleep 10
@@ -55,7 +56,7 @@ fi
 
 echo -e "\\e[33m----------quarkus-logback-17-aca test done------------\\e[0m"
 # ------------------------quarkus-logback-21-aca------------------------
-az deployment group create --name arm-deployment --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --template-file test-resource/test-resources.json --parameters projectName=$PROJECT_NAME_JAVA_21_ACA
+az deployment group create --name arm-deployment --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --template-file test-resource/test-resources.json --parameters projectName=$PROJECT_NAME_JAVA_21_ACA dockerfile_name=$DOCKERFILE_NAME
 echo '---Quarkus logback resource created---'
 
 sleep 10
