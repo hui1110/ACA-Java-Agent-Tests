@@ -16,7 +16,7 @@ RUN apk add wget unzip tcpdump ngrep iproute2-ss bind-tools
 
 COPY ./ ./
 
-RUN wget https://huiagentaccount.blob.core.windows.net/ja-agent/ja-agent.jar
+RUN wget https://huiagentaccount.blob.core.windows.net/ja-agent/agent-0.0.1-SNAPSHOT.jar
 
 ENTRYPOINT ["sh", "-c"]
-CMD ["java -javaagent:ja-agent.jar -Xms256m -Xmx256m -jar /app/target/quarkus-app/quarkus-run.jar"]
+CMD ["java -javaagent:agent-0.0.1-SNAPSHOT.jar -Xms256m -Xmx256m -jar /app/target/quarkus-app/quarkus-run.jar"]

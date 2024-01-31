@@ -11,6 +11,6 @@ ENV PROJECT_NAME=${PROJECT_NAME}
 COPY --from=maven-builder app/ACA-Java-Agent-Log-Level/${PROJECT_NAME}/target/*.jar /app-service/app.jar
 RUN apk add libgcc
 WORKDIR /app-service
-RUN wget -O agent.jar https://huiagentaccount.blob.core.windows.net/ja-agent/ja-agent.jar
+RUN wget -O agent.jar https://huiagentaccount.blob.core.windows.net/ja-agent/agent-0.0.1-SNAPSHOT.jar
 EXPOSE 8080
 ENTRYPOINT ["java","-javaagent:agent.jar", "-jar", "app.jar"]
