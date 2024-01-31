@@ -1,10 +1,10 @@
 echo 'Start to test ACA Java Agent...'
 export URL_PREFIX="https://"
-export QUARKUS_LOGBACK_RESOURCE_GROUP="acaquarkuslogback"
-export SPRING_BOOT_LOG4J2_RESOURCE_GROUP="acaspringbootlog4j2"
-export SPRING_BOOT_LOGBACK_RESOURCE_GROUP="acaspringbootlogback"
-export SPRING_LOG4J2_RESOURCE_GROUP="acaspringlog4j2"
-export SPRING_LOGBACK_RESOURCE_GROUP="acaspringlogback"
+export QUARKUS_LOGBACK_RESOURCE_GROUP="acaquarkuslogback0"
+export SPRING_BOOT_LOG4J2_RESOURCE_GROUP="acaspringbootlog4j20"
+export SPRING_BOOT_LOGBACK_RESOURCE_GROUP="acaspringbootlogback0"
+export SPRING_LOG4J2_RESOURCE_GROUP="acaspringlog4j20"
+export SPRING_LOGBACK_RESOURCE_GROUP="acaspringlogback0"
 
 
 cd ACA-Java-Agent-Log-Level/quarkus-logback
