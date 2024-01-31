@@ -14,14 +14,3 @@ WORKDIR /app-service
 RUN wget -O agent.jar https://huiagentaccount.blob.core.windows.net/ja-agent/agent-0.0.1-SNAPSHOT.jar
 EXPOSE 8080
 ENTRYPOINT ["java","-javaagent:agent.jar", "-jar", "app.jar"]
-
-RUN apk update
-RUN if [ "$PROJECT_NAME" = "quarkus-logback-11-aca" ] ; then \
-        apk add --no-cache openjdk11 && apk add --no-cache maven=3.8.1-r0; \
-    elif [ "$PROJECT_NAME" = "quarkus-logback-17-aca" ] ; then \
-         apk add --no-cache openjdk17 && apk add --no-cache maven=3.8.1-r0; \
-    elif [ "$PROJECT_NAME" = "quarkus-logback-21-aca" ] ; then \
-             apk add --no-cache openjdk21 && apk add --no-cache maven=3.8.1-r0; \
-    else \
-        apk add --no-cache openjdk8 && apk add --no-cache maven=3.8.1-r0; \
-    fi
