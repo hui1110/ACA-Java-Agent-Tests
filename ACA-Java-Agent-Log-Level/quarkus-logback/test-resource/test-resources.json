@@ -284,7 +284,7 @@
           ]
         },
         "template": {
-          "revisionSuffix": "revision",
+          "revisionSuffix": "[parameters('projectName')]",
           "containers": [
             {
               "name": "[parameters('containerAppName')]",
