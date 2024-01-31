@@ -52,6 +52,8 @@ then
 else
    echo -e "\\e[31mQuarkus logback DEBUG log no output\\e[0m"
 fi
+
+echo -e "\\e[33m----------quarkus-logback-17-aca test done------------\\e[0m"
 # ------------------------quarkus-logback-21-aca------------------------
 az deployment group create --name arm-deployment --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --template-file test-resource/test-resources.json --parameters projectName=$PROJECT_NAME_JAVA_21_ACA
 echo '---Quarkus logback resource created---'
@@ -69,3 +71,4 @@ then
 else
    echo -e "\\e[31mQuarkus logback DEBUG log no output\\e[0m"
 fi
+echo -e "\\e[33m----------quarkus-logback-21-aca test done------------\\e[0m"
