@@ -16,16 +16,9 @@
         "description": "Specifies the name of the user assigned managed identity."
       }
     },
-    "projectName": {
-      "type": "string",
-      "defaultValue": "quarkus-logback",
-      "metadata": {
-        "description": "Specifies the name of the container app."
-      }
-    },
     "containerRegistryName": {
       "type": "string",
-      "defaultValue": "[format('reg{0}{1}', resourceGroup().name, replace(parameters('projectName'), '-', ''))]",
+      "defaultValue": "[format('reg{0}', resourceGroup().name)]",
       "metadata": {
         "description": "Specifies the name of the container registry."
       }
@@ -47,6 +40,13 @@
     "containerAppName": {
       "type": "string",
       "defaultValue": "[format('app-{0}', resourceGroup().name)]",
+      "metadata": {
+        "description": "Specifies the name of the container app."
+      }
+    },
+    "projectName": {
+      "type": "string",
+      "defaultValue": "quarkus-logback",
       "metadata": {
         "description": "Specifies the name of the container app."
       }
@@ -135,7 +135,7 @@
     "const_ownerRole": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635')]",
     "const_scriptUrl": "https://raw.githubusercontent.com/hui1110/JavaLogTestProject/main/ACA-Java-Agent-Log-Level/quarkus-logback/test-resource/",
     "const_scriptBuildImage": "build-container-registry-image.sh",
-    "const_buildImage": "build-image-to-container-registry",
+    "const_buildImage":"[concat('build-image-',parameters('projectName')))]",
     "ref_identityId": "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('userAssignedManagedIdentityName'))]",
     "name_roleAssignmentName": "[guid(format('{0}{1}Role assignment in group{0}', resourceGroup().name, variables('ref_identityId')))]",
     "roleAssignmentName": "[concat(parameters('containerRegistryName'), '/Microsoft.Authorization/', guid(concat(resourceGroup().id), variables('const_ownerRole')))]"

@@ -20,7 +20,7 @@ WORKDIR /app
 ARG PROJECT_NAME
 ARG ACA_COMMAND_LINE
 ENV PROJECT_NAME=${PROJECT_NAME}
-# copy arthas
+
 COPY --from=hengyunabc/arthas:latest /opt/arthas /opt/arthas
 COPY --from=maven-builder app/ACA-Java-Agent-Log-Level/quarkus-logback/target/*.jar /app-service/target/quarkus-logback-1.0.0-runner.jar
 
