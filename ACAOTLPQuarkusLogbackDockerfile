@@ -15,7 +15,7 @@ COPY . /app
 WORKDIR /app
 RUN mvn clean install -pl ACA-Java-Agent-Log-Level/quarkus-logback -DskipTests
 
-FROM maven:3-eclipse-temurin-11-alpine
+FROM maven:3-eclipse-temurin-21-alpine
 WORKDIR /app
 ARG PROJECT_NAME
 ARG ACA_COMMAND_LINE

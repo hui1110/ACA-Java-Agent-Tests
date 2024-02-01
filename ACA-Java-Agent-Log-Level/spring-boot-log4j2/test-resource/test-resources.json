@@ -51,9 +51,23 @@
         "description": "Specifies the name of the container app."
       }
     },
+    "dockerfile_name": {
+      "type": "string",
+      "defaultValue": "ACAQuarkusLogbackDockerfile",
+      "metadata": {
+        "description": "Specifies the name of the container app."
+      }
+    },
+    "tagName": {
+      "type": "string",
+      "defaultValue": "spring-boot-log4j2",
+      "metadata": {
+        "description": "Specifies the name of the container app."
+      }
+    },
     "containerImage": {
       "type": "string",
-      "defaultValue": "[concat(concat(parameters('containerRegistryName'), '.azurecr.io/', parameters('containerRegistryName'), '/asa-agent:', parameters('projectName')))]",
+      "defaultValue": "[concat(concat(parameters('containerRegistryName'), '.azurecr.io/', parameters('containerRegistryName'), '/asa-agent:', parameters('tagName')))]",
       "metadata": {
         "description": "Specifies the docker container image to deploy."
       }
@@ -201,6 +215,14 @@
           {
             "name": "PROJECT_NAME",
             "value": "[parameters('projectName')]"
+          },
+          {
+            "name": "DOCKERFILE_NAME",
+            "value": "[parameters('dockerfile_name')]"
+          },
+          {
+            "name": "TAG_NAME",
+            "value": "[parameters('tagName')]"
           }
         ],
         "cleanupPreference": "OnSuccess",
