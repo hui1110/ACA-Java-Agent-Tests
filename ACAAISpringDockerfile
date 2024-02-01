@@ -19,12 +19,13 @@ COPY . /app
 WORKDIR /app
 RUN mvn clean install -pl ACA-Java-Agent-Log-Level/${PROJECT_NAME} -DskipTests
 
-FROM maven:3-eclipse-temurin-21-alpine
+FROM tomcat:8.5-jdk21-openjdk
 ARG PROJECT_NAME
 ENV PROJECT_NAME=${PROJECT_NAME}
-COPY --from=maven-builder app/ACA-Java-Agent-Log-Level/${PROJECT_NAME}/target/*.jar /app-service/app.jar
-WORKDIR /app-service
-RUN wget https://huiagentaccount.blob.core.windows.net/ja-agent/ja-agent.jar
-RUN wget https://huiagentaccount.blob.core.windows.net/applicationinsights-agent/applicationinsights-agent-3.4.19.jar
-EXPOSE 8080
-ENTRYPOINT ["java", "-javaagent:ja-agent.jar", "-javaagent:applicationinsights-agent-3.4.19.jar", "-jar", "app.jar"]
+RUN rm -fr /usr/local/tomcat/webapps/*
+COPY --from=maven-builder /app/ACA-Java-Agent-Log-Level/${PROJECT_NAME}/target/*.war /usr/local/tomcat/webapps/ROOT.war
+RUN mkdir /usr/local/tomcat/agent && wget -O agent.jar https://huiagentaccount.blob.core.windows.net/ja-agent/ja-agent.jar && cp agent.jar /usr/local/tomcat/agent/ && wget -O applicationinsights-agent.jar https://huiagentaccount.blob.core.windows.net/applicationinsights-agent/applicationinsights-agent-3.4.19.jar && cp applicationinsights-agent.jar /usr/local/tomcat/agent/
+ADD ./setEnvScript/setACAAIEnv.sh /usr/local/tomcat/bin/setACAAIEnv.sh
+RUN chmod +x /usr/local/tomcat/bin/setACAAIEnv.sh
+
+CMD ["catalina.sh","run"]

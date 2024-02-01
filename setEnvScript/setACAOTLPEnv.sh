@@ -1,0 +1,1 @@
+export CATALINA_OPTS="$CATALINA_OPTS -javaagent:/usr/local/tomcat/agent/agent.jar -javaagent:/usr/local/tomcat/agent/opentelemetry-javaagent.jar"

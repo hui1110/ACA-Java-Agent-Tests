@@ -51,9 +51,23 @@
         "description": "Specifies the name of the container app."
       }
     },
+    "dockerfile_name": {
+      "type": "string",
+      "defaultValue": "ACASpringDockerfile",
+      "metadata": {
+        "description": "Specifies the name of the container app."
+      }
+    },
+    "tagName": {
+      "type": "string",
+      "defaultValue": "spring-log4j2",
+      "metadata": {
+        "description": "Specifies the name of the container app."
+      }
+    },
     "containerImage": {
       "type": "string",
-      "defaultValue": "[concat(concat(parameters('containerRegistryName'), '.azurecr.io/', parameters('containerRegistryName'), '/asa-agent:', parameters('projectName')))]",
+      "defaultValue": "[concat(concat(parameters('containerRegistryName'), '.azurecr.io/', parameters('containerRegistryName'), '/asa-agent:', parameters('tagName')))]",
       "metadata": {
         "description": "Specifies the docker container image to deploy."
       }
@@ -128,7 +142,7 @@
     "const_ownerRole": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635')]",
     "const_scriptUrl": "[concat('https://raw.githubusercontent.com/hui1110/JavaLogTestProject/main/ACA-Java-Agent-Log-Level/', parameters('projectName'), '/test-resource/')]",
     "const_scriptBuildImage": "build-container-registry-image.sh",
-    "const_buildImage": "build-image-to-container-registry",
+    "const_buildImage":"[concat('build-image-',parameters('tagName'))]",
     "ref_identityId": "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('userAssignedManagedIdentityName'))]",
     "name_roleAssignmentName": "[guid(format('{0}{1}Role assignment in group{0}', resourceGroup().name, variables('ref_identityId')))]",
     "roleAssignmentName": "[concat(parameters('containerRegistryName'), '/Microsoft.Authorization/', guid(concat(resourceGroup().id), variables('const_ownerRole')))]"
@@ -201,6 +215,14 @@
           {
             "name": "PROJECT_NAME",
             "value": "[parameters('projectName')]"
+          },
+          {
+            "name": "DOCKERFILE_NAME",
+            "value": "[parameters('dockerfile_name')]"
+          },
+          {
+            "name": "TAG_NAME",
+            "value": "[parameters('tagName')]"
           }
         ],
         "cleanupPreference": "OnSuccess",
@@ -284,7 +306,7 @@
           ]
         },
         "template": {
-          "revisionSuffix": "revision",
+          "revisionSuffix": "[parameters('tagName')]",
           "containers": [
             {
               "name": "[parameters('containerAppName')]",
