@@ -1,6 +1,6 @@
 echo 'Start to test ACA Java Agent in Spring Boot logback...'
 export URL_PREFIX="https://"
-export SPRING_BOOT_LOGBACK_RESOURCE_GROUP="acaspringbootlogback"
+export SPRING_BOOT_LOGBACK_RESOURCE_GROUP="acaspringbootlogback01"
 export PROJECT_NAME="spring-boot-logback"
 export PROJECT_NAME_JAVA_8_ACA="spring-boot-logback-8-aca"
 export PROJECT_NAME_JAVA_11_ACA="spring-boot-logback-11-aca"
