@@ -181,7 +181,7 @@ else
    echo -e "\\e[31mSpring log4j2 Java 8 ACA OTLP DEBUG log no output\\e[0m"
 fi
 
-echo -e "\\e[33m----------Spring log4j2 Java 11 ACA OTLP test done------------\\e[0m"
+echo -e "\\e[33m----------Spring log4j2 Java 8 ACA OTLP test done------------\\e[0m"
 
 # ------------------------Spring log4j2 Java 11 ACA OTLP------------------------
 az deployment group create --name arm-deployment --resource-group $SPRING_LOG4J2_RESOURCE_GROUP --template-file test-resource/test-resources.json --parameters projectName=$PROJECT_NAME tagName=$PROJECT_NAME_JAVA_11_ACA_OTLP dockerfile_name=$ACA_OTLP_DOCKERFILE_NAME
