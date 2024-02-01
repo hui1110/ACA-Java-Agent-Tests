@@ -30,8 +30,6 @@ echo '---Spring logback Java 8 ACA image created---'
 sleep 10
 export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $SPRING_LOGBACK_RESOURCE_GROUP --name app-$SPRING_LOGBACK_RESOURCE_GROUP --query properties.configuration.ingress.fqdn --output tsv)
 curl $APPLICATION_URL/hello
-sleep 5
-curl $APPLICATION_URL/hello
 echo '---Spring logback Java 8 ACA application debug API access---'
 
 if [ $(az containerapp logs show --name app-$SPRING_LOGBACK_RESOURCE_GROUP --resource-group $SPRING_LOGBACK_RESOURCE_GROUP --type console --tail 100 | grep "DEBUG" | wc -l) -gt 0 ]
@@ -49,8 +47,6 @@ echo '---Spring logback Java 11 ACA image created---'
 
 sleep 10
 export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $SPRING_LOGBACK_RESOURCE_GROUP --name app-$SPRING_LOGBACK_RESOURCE_GROUP --query properties.configuration.ingress.fqdn --output tsv)
-curl $APPLICATION_URL/hello
-sleep 5
 curl $APPLICATION_URL/hello
 echo '---Spring logback Java 11 ACA application debug API access---'
 
@@ -70,8 +66,6 @@ echo '---Spring logback Java 17 ACA image created---'
 sleep 10
 export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $SPRING_LOGBACK_RESOURCE_GROUP --name app-$SPRING_LOGBACK_RESOURCE_GROUP --query properties.configuration.ingress.fqdn --output tsv)
 curl $APPLICATION_URL/hello
-sleep 5
-curl $APPLICATION_URL/hello
 echo '---Spring logback Java 17 ACA application debug API access---'
 
 if [ $(az containerapp logs show --name app-$SPRING_LOGBACK_RESOURCE_GROUP --resource-group $SPRING_LOGBACK_RESOURCE_GROUP --type console --tail 100 | grep "DEBUG" | wc -l) -gt 0 ]
@@ -90,8 +84,6 @@ echo '---Spring logback Java 21 ACA image created---'
 sleep 10
 export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $SPRING_LOGBACK_RESOURCE_GROUP --name app-$SPRING_LOGBACK_RESOURCE_GROUP --query properties.configuration.ingress.fqdn --output tsv)
 curl $APPLICATION_URL/hello
-sleep 5
-curl $APPLICATION_URL/hello
 echo '---Spring logback Java 21 ACA application debug API access---'
 
 if [ $(az containerapp logs show --name app-$SPRING_LOGBACK_RESOURCE_GROUP --resource-group $SPRING_LOGBACK_RESOURCE_GROUP --type console --tail 100 | grep "DEBUG" | wc -l) -gt 0 ]
@@ -108,8 +100,6 @@ echo '---Spring logback Java 8 ACA AI image created---'
 
 sleep 10
 export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $SPRING_LOGBACK_RESOURCE_GROUP --name app-$SPRING_LOGBACK_RESOURCE_GROUP --query properties.configuration.ingress.fqdn --output tsv)
-curl $APPLICATION_URL/hello
-sleep 5
 curl $APPLICATION_URL/hello
 echo '---Spring logback Java 8 ACA AI application debug API access---'
 
@@ -129,8 +119,6 @@ echo '---Spring logback Java 11 ACA AI image created---'
 sleep 10
 export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $SPRING_LOGBACK_RESOURCE_GROUP --name app-$SPRING_LOGBACK_RESOURCE_GROUP --query properties.configuration.ingress.fqdn --output tsv)
 curl $APPLICATION_URL/hello
-sleep 5
-curl $APPLICATION_URL/hello
 echo '---Spring logback Java 11 ACA AI application debug API access---'
 
 if [ $(az containerapp logs show --name app-$SPRING_LOGBACK_RESOURCE_GROUP --resource-group $SPRING_LOGBACK_RESOURCE_GROUP --type console --tail 100 | grep "DEBUG" | wc -l) -gt 0 ]
@@ -148,8 +136,6 @@ echo '---Spring logback Java 17 ACA AI image created---'
 
 sleep 10
 export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $SPRING_LOGBACK_RESOURCE_GROUP --name app-$SPRING_LOGBACK_RESOURCE_GROUP --query properties.configuration.ingress.fqdn --output tsv)
-curl $APPLICATION_URL/hello
-sleep 5
 curl $APPLICATION_URL/hello
 echo '---Spring logback Java 17 ACA AI application debug API access---'
 
@@ -169,8 +155,6 @@ echo '---Spring logback Java 21 ACA AI image created---'
 sleep 10
 export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $SPRING_LOGBACK_RESOURCE_GROUP --name app-$SPRING_LOGBACK_RESOURCE_GROUP --query properties.configuration.ingress.fqdn --output tsv)
 curl $APPLICATION_URL/hello
-sleep 5
-curl $APPLICATION_URL/hello
 echo '---Spring logback Java 21 ACA AI application debug API access---'
 
 if [ $(az containerapp logs show --name app-$SPRING_LOGBACK_RESOURCE_GROUP --resource-group $SPRING_LOGBACK_RESOURCE_GROUP --type console --tail 100 | grep "DEBUG" | wc -l) -gt 0 ]
@@ -187,8 +171,6 @@ echo '---Spring logback Java 8 ACA OTLP image created---'
 
 sleep 10
 export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $SPRING_LOGBACK_RESOURCE_GROUP --name app-$SPRING_LOGBACK_RESOURCE_GROUP --query properties.configuration.ingress.fqdn --output tsv)
-curl $APPLICATION_URL/hello
-sleep 5
 curl $APPLICATION_URL/hello
 echo '---Spring logback Java 8 ACA OTLP application debug API access---'
 
@@ -208,8 +190,6 @@ echo '---Spring logback Java 11 ACA OTLP image created---'
 sleep 10
 export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $SPRING_LOGBACK_RESOURCE_GROUP --name app-$SPRING_LOGBACK_RESOURCE_GROUP --query properties.configuration.ingress.fqdn --output tsv)
 curl $APPLICATION_URL/hello
-sleep 5
-curl $APPLICATION_URL/hello
 echo '---Spring logback Java 11 ACA OTLP application debug API access---'
 
 if [ $(az containerapp logs show --name app-$SPRING_LOGBACK_RESOURCE_GROUP --resource-group $SPRING_LOGBACK_RESOURCE_GROUP --type console --tail 100 | grep "DEBUG" | wc -l) -gt 0 ]
@@ -228,8 +208,6 @@ echo '---Spring logback Java 17 ACA OTLP image created---'
 sleep 10
 export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $SPRING_LOGBACK_RESOURCE_GROUP --name app-$SPRING_LOGBACK_RESOURCE_GROUP --query properties.configuration.ingress.fqdn --output tsv)
 curl $APPLICATION_URL/hello
-sleep 5
-curl $APPLICATION_URL/hello
 echo '---Spring logback Java 17 ACA OTLP application debug API access---'
 
 if [ $(az containerapp logs show --name app-$SPRING_LOGBACK_RESOURCE_GROUP --resource-group $SPRING_LOGBACK_RESOURCE_GROUP --type console --tail 100 | grep "DEBUG" | wc -l) -gt 0 ]
@@ -247,8 +225,6 @@ echo '---Spring logback Java 21 ACA OTLP image created---'
 
 sleep 10
 export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $SPRING_LOGBACK_RESOURCE_GROUP --name app-$SPRING_LOGBACK_RESOURCE_GROUP --query properties.configuration.ingress.fqdn --output tsv)
-curl $APPLICATION_URL/hello
-sleep 5
 curl $APPLICATION_URL/hello
 echo '---Spring logback Java 21 ACA OTLP application debug API access---'
 
