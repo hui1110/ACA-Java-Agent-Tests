@@ -135,7 +135,7 @@
     "const_ownerRole": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635')]",
     "const_scriptUrl": "https://raw.githubusercontent.com/hui1110/JavaLogTestProject/main/ACA-Java-Agent-Log-Level/quarkus-logback/test-resource/",
     "const_scriptBuildImage": "build-container-registry-image.sh",
-    "const_buildImage":"[concat('build-image-',parameters('projectName')))]",
+    "const_buildImage":"[concat('build-image-',parameters('projectName'))]",
     "ref_identityId": "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('userAssignedManagedIdentityName'))]",
     "name_roleAssignmentName": "[guid(format('{0}{1}Role assignment in group{0}', resourceGroup().name, variables('ref_identityId')))]",
     "roleAssignmentName": "[concat(parameters('containerRegistryName'), '/Microsoft.Authorization/', guid(concat(resourceGroup().id), variables('const_ownerRole')))]"
