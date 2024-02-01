@@ -1,6 +1,6 @@
 echo 'Start to test ACA Java Agent in Quarkus logback...'
 export URL_PREFIX="https://"
-export QUARKUS_LOGBACK_RESOURCE_GROUP="acaquarkuslogback"
+export QUARKUS_LOGBACK_RESOURCE_GROUP="acaquarkuslogback00"
 export PROJECT_NAME_JAVA_11_ACA="quarkus-logback-11-aca"
 export PROJECT_NAME_JAVA_17_ACA="quarkus-logback-17-aca"
 export PROJECT_NAME_JAVA_21_ACA="quarkus-logback-21-aca"
@@ -17,7 +17,7 @@ cd ACA-Java-Agent-Log-Level/quarkus-logback
 az group create -l eastus -n $QUARKUS_LOGBACK_RESOURCE_GROUP
 echo '---Quarkus logback resource group created---'
 
-# ------------------------quarkus-logback-17-aca------------------------
+# ------------------------quarkus-logback-11-aca------------------------
 az deployment group create --name arm-deployment --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --template-file test-resource/test-resources.json --parameters projectName=$PROJECT_NAME_JAVA_11_ACA dockerfile_name=$DOCKERFILE_NAME
 echo '---Quarkus logback resource created---'
 
