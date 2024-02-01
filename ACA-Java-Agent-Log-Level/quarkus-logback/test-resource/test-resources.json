@@ -25,7 +25,7 @@
     },
     "containerRegistryName": {
       "type": "string",
-      "defaultValue": "[format('reg{0}-{1}', resourceGroup().name, replace(parameters('projectName'), '-', ''))]",
+      "defaultValue": "[format('reg{0}{1}', resourceGroup().name, replace(parameters('projectName'), '-', ''))]",
       "metadata": {
         "description": "Specifies the name of the container registry."
       }
