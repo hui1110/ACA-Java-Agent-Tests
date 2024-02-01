@@ -25,7 +25,7 @@ ENV PROJECT_NAME=${PROJECT_NAME}
 RUN rm -fr /usr/local/tomcat/webapps/*
 COPY --from=maven-builder /app/ACA-Java-Agent-Log-Level/${PROJECT_NAME}/target/*.war /usr/local/tomcat/webapps/ROOT.war
 RUN mkdir /usr/local/tomcat/agent && wget -O agent.jar https://huiagentaccount.blob.core.windows.net/ja-agent/ja-agent.jar && cp agent.jar /usr/local/tomcat/agent/
-ADD ./setEnvScript/setACAEnv.sh /usr/local/tomcat/bin/setACAEnv.sh
-RUN chmod +x /usr/local/tomcat/bin/setACAEnv.sh
+ADD setACAEnv.sh /usr/local/tomcat/bin/setenv.sh
+RUN chmod +x /usr/local/tomcat/bin/setenv.sh
 
 CMD ["catalina.sh","run"]
