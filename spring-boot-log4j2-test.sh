@@ -236,3 +236,6 @@ else
 fi
 
 echo -e "\\e[33m----------Quarkus logback Java 21 ACA OTLP test done------------\\e[0m"
+
+az group delete --name $SPRING_BOOT_LOG4J2_RESOURCE_GROUP --yes --no-wait
+echo '---Spring Boot log4j2 resource group deleted---'
