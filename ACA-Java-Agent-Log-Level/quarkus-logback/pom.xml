@@ -36,11 +36,6 @@
             <artifactId>quarkus-resteasy-reactive</artifactId>
         </dependency>
         <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>${logback-classic.version}</version>
-        </dependency>
-        <dependency>
             <groupId>io.quarkiverse.logging.logback</groupId>
             <artifactId>quarkus-logging-logback</artifactId>
             <version>${quarkus-logging-logback.version}</version>
