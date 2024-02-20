@@ -14,7 +14,7 @@ export ACA_DOCKERFILE_NAME="ACAQuarkusLogbackDockerfile"
 export ACA_AI_DOCKERFILE_NAME="ACAAIQuarkusLogbackDockerfile"
 export ACA_OTLP_DOCKERFILE_NAME="ACAOTLPQuarkusLogbackDockerfile"
 
-cd ACA-Java-Agent-Log-Level/quarkus-logback
+cd ../ACA-Java-Agent-Log-Level/quarkus-logback
 
 az group create -l eastus -n $QUARKUS_LOGBACK_RESOURCE_GROUP
 echo '---Quarkus logback resource group created---'

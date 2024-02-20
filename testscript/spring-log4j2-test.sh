@@ -18,7 +18,7 @@ export ACA_DOCKERFILE_NAME="ACASpringDockerfile"
 export ACA_AI_DOCKERFILE_NAME="ACAAISpringDockerfile"
 export ACA_OTLP_DOCKERFILE_NAME="ACAOTLPSpringDockerfile"
 
-cd ACA-Java-Agent-Log-Level/spring-log4j2
+cd ../ACA-Java-Agent-Log-Level/spring-log4j2
 
 az group create -l eastus -n $SPRING_LOG4J2_RESOURCE_GROUP
 echo '---Spring log4j2 resource group created---'

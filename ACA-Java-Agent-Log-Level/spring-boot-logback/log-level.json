@@ -1,0 +1,10 @@
+{
+  "logs": [
+    {
+      "logLevel": "info",
+      "logPkgName": "com.microsoft.azure.spring.boot.accelerator.logback.controller"
+    }
+  ],
+  "enabled": false,
+  "lastModifiedTimestamp": 0
+}

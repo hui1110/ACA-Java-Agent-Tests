@@ -18,7 +18,7 @@ export ACA_DOCKERFILE_NAME="ACASpringBootDockerfile"
 export ACA_AI_DOCKERFILE_NAME="ACAAISpringBootDockerfile"
 export ACA_OTLP_DOCKERFILE_NAME="ACAOTLPSpringBootDockerfile"
 
-cd ACA-Java-Agent-Log-Level/spring-boot-logback
+cd ../ACA-Java-Agent-Log-Level/spring-boot-logback
 
 az group create -l eastus -n $SPRING_BOOT_LOGBACK_RESOURCE_GROUP
 echo '---Spring Boot logback resource group created---'
