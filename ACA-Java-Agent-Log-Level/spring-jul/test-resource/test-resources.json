@@ -140,7 +140,7 @@
   },
   "variables": {
     "const_ownerRole": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635')]",
-    "const_scriptUrl": "[concat('https://raw.githubusercontent.com/hui1110/JavaLogTestProject/main/ACA-Java-Agent-Log-Level/', parameters('projectName'), '/test-resource/')]",
+    "const_scriptUrl": "[concat('https://raw.githubusercontent.com/hui1110/JavaLogTestProject/aca-test/ACA-Java-Agent-Log-Level/', parameters('projectName'), '/test-resource/')]",
     "const_scriptBuildImage": "build-container-registry-image.sh",
     "const_buildImage":"[concat('build-image-',parameters('tagName'))]",
     "ref_identityId": "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('userAssignedManagedIdentityName'))]",
