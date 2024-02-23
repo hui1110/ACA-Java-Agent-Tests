@@ -27,6 +27,7 @@
         <module>ACA-Java-Agent-Log-Level/java-log4j</module>
         <module>ACA-Java-Agent-Log-Level/java-log4j2</module>
         <module>ACA-Java-Agent-Log-Level/java-logback</module>
+        <module>ACA-Java-Agent-Log-Level/quarkus-jboss</module>
         <module>ACA-Java-Agent-Log-Level/quarkus-jul</module>
         <module>ACA-Java-Agent-Log-Level/quarkus-log4j</module>
         <module>ACA-Java-Agent-Log-Level/quarkus-log4j2</module>
