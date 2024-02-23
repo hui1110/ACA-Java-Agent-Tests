@@ -53,14 +53,21 @@
     },
     "dockerfile_name": {
       "type": "string",
-      "defaultValue": "ACAQuarkusLogbackDockerfile",
+      "defaultValue": "ACAQuarkusDockerfile",
+      "metadata": {
+        "description": "Specifies the name of the container app."
+      }
+    },
+    "tagName": {
+      "type": "string",
+      "defaultValue": "quarkus-logback",
       "metadata": {
         "description": "Specifies the name of the container app."
       }
     },
     "containerImage": {
       "type": "string",
-      "defaultValue": "[concat(concat(parameters('containerRegistryName'), '.azurecr.io/', parameters('containerRegistryName'), '/asa-agent:', parameters('projectName')))]",
+      "defaultValue": "[concat(concat(parameters('containerRegistryName'), '.azurecr.io/', parameters('containerRegistryName'), '/asa-agent:', parameters('tagName')))]",
       "metadata": {
         "description": "Specifies the docker container image to deploy."
       }
@@ -133,9 +140,9 @@
   },
   "variables": {
     "const_ownerRole": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635')]",
-    "const_scriptUrl": "https://raw.githubusercontent.com/hui1110/JavaLogTestProject/main/ACA-Java-Agent-Log-Level/quarkus-logback/test-resource/",
+    "const_scriptUrl": "[concat('https://raw.githubusercontent.com/hui1110/JavaLogTestProject/aca-test/ACA-Java-Agent-Log-Level/', parameters('projectName'), '/test-resource/')]",
     "const_scriptBuildImage": "build-container-registry-image.sh",
-    "const_buildImage":"[concat('build-image-',parameters('projectName'))]",
+    "const_buildImage":"[concat('build-image-',parameters('tagName'))]",
     "ref_identityId": "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('userAssignedManagedIdentityName'))]",
     "name_roleAssignmentName": "[guid(format('{0}{1}Role assignment in group{0}', resourceGroup().name, variables('ref_identityId')))]",
     "roleAssignmentName": "[concat(parameters('containerRegistryName'), '/Microsoft.Authorization/', guid(concat(resourceGroup().id), variables('const_ownerRole')))]"
@@ -212,6 +219,10 @@
           {
             "name": "DOCKERFILE_NAME",
             "value": "[parameters('dockerfile_name')]"
+          },
+          {
+            "name": "TAG_NAME",
+            "value": "[parameters('tagName')]"
           }
         ],
         "cleanupPreference": "OnSuccess",
@@ -295,7 +306,7 @@
           ]
         },
         "template": {
-          "revisionSuffix": "[parameters('projectName')]",
+          "revisionSuffix": "[parameters('tagName')]",
           "containers": [
             {
               "name": "[parameters('containerAppName')]",

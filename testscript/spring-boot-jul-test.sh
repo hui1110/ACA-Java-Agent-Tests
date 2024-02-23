@@ -1,6 +1,6 @@
 echo 'Start to test ACA Java Agent in Spring Boot jul...'
 export URL_PREFIX="https://"
-export SPRING_BOOT_JUL_RESOURCE_GROUP="springbootjul"
+export SPRING_BOOT_JUL_RESOURCE_GROUP="springbootjul0"
 export PROJECT_NAME="spring-boot-jul"
 export PROJECT_NAME_JAVA_8_ACA="spring-boot-jul-8-aca"
 export PROJECT_NAME_JAVA_11_ACA="spring-boot-jul-11-aca"
