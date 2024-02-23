@@ -13,7 +13,7 @@ az group create -l eastus -n $QUARKUS_LOGBACK_RESOURCE_GROUP
 echo '---Quarkus logback resource group created---'
 
 # ------------------------Quarkus logback Java 11 ACA------------------------
-az deployment group create --name arm-deployment --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --template-file test-resource/test-resources.json --parameters --parameters projectName=$PROJECT_NAME tagName=$PROJECT_NAME_JAVA_11_ACA dockerfile_name=$ACA_DOCKERFILE_NAME
+az deployment group create --name arm-deployment --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --template-file test-resource/test-resources.json --parameters projectName=$PROJECT_NAME tagName=$PROJECT_NAME_JAVA_11_ACA dockerfile_name=$ACA_DOCKERFILE_NAME
 echo '---Quarkus logback Java 11 ACA image created---'
 
 sleep 20

@@ -1,0 +1,26 @@
+{
+  "loggerLevelConfigurator": {
+    "loggerLevelSettings": [
+      {
+        "level": "warn",
+        "logger": "root"
+      },
+      {
+        "level": "debug",
+        "logger": "com.microsoft.azure.quarkus.accelerator.jul.GreetingResource"
+      },
+      {
+        "level": "debug",
+        "logger": "com.microsoft.azure.quarkus.accelerator.log4j.GreetingResource"
+      },
+      {
+        "level": "debug",
+        "logger": "com.microsoft.azure.quarkus.accelerator.log4j2.GreetingResource"
+      },
+      {
+        "level": "debug",
+        "logger": "com.microsoft.azure.quarkus.accelerator.logback.GreetingResource"
+      }
+    ]
+  }
+}
