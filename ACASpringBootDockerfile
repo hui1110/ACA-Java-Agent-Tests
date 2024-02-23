@@ -24,6 +24,7 @@ ARG PROJECT_NAME
 ENV PROJECT_NAME=${PROJECT_NAME}
 COPY --from=maven-builder app/ACA-Java-Agent-Log-Level/${PROJECT_NAME}/target/*.jar /app-service/app.jar
 WORKDIR /app-service
-RUN wget https://huiagentaccount.blob.core.windows.net/ja-agent/ja-agent.jar
+RUN wget https://huiagentaccount.blob.core.windows.net/agent/agent-0.0.1-SNAPSHOT.jar
+ADD spring-boot-log-level.json /app-service/log-level.json
 EXPOSE 8080
-ENTRYPOINT ["java","-javaagent:ja-agent.jar", "-jar", "app.jar"]
+ENTRYPOINT ["java","-javaagent:agent-0.0.1-SNAPSHOT.jar", "-Dja.config.file=log-level.json",""-jar", "app.jar"]

@@ -1,0 +1,26 @@
+{
+  "loggerLevelConfigurator": {
+    "loggerLevelSettings": [
+      {
+        "level": "warn",
+        "logger": "root"
+      },
+      {
+        "level": "debug",
+        "logger": "com.microsoft.azure.spring.boot.accelerator.jul.controller.HelloController"
+      },
+      {
+        "level": "debug",
+        "logger": "com.microsoft.azure.spring.boot.accelerator.log4j.controller.HelloController"
+      },
+      {
+        "level": "debug",
+        "logger": "com.microsoft.azure.spring.boot.accelerator.log4j2.controller.HelloController"
+      },
+      {
+        "level": "debug",
+        "logger": "com.microsoft.azure.spring.boot.accelerator.logback.controller.HelloController"
+      }
+    ]
+  }
+}
