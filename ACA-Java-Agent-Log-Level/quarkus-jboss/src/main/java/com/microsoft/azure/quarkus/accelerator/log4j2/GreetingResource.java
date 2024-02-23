@@ -4,19 +4,19 @@ import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.jboss.logmanager.Level;
+import org.jboss.logmanager.Logger;
 
 @Path("/hello")
 public class GreetingResource {
 
-    private static final Logger logger = LogManager.getLogger(GreetingResource.class);
+    private static final Logger logger = Logger.getLogger(GreetingResource.class.getName());
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
-        logger.debug("Hello world, quarkus-log4j2!");
-        return "hello";
+        logger.log(Level.DEBUG, "Hello world!");
+        return "Hello, quarkus-jboss!";
     }
 
 }

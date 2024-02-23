@@ -13,7 +13,7 @@ public class HelloController {
     @GetMapping("/hello")
     public String hello() {
         logger.debug("Hello world");
-        return "Hello world";
+        return "Hello world, spring-boot-log4j2!";
     }
 
 }

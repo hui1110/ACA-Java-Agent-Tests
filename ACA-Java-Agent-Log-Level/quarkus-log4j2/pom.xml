@@ -2,7 +2,7 @@
 <project>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.microsoft.azure.spring</groupId>
+    <groupId>com.microsoft.azure.quarkus</groupId>
     <artifactId>quarkus-log4j2</artifactId>
     <version>1.0.0</version>
 

@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.microsoft.azure.spring</groupId>
-    <artifactId>java-log-test-project</artifactId>
+    <artifactId>JavaLogTestProject</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
     <name>Java log test project</name>

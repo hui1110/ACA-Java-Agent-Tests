@@ -12,7 +12,7 @@ public class HelloController {
 
     @GetMapping("/hello")
     public String hello() {
-        logger.fine("Hello world");
+        logger.fine("Hello world, spring-boot-jul!");
         return "Hello world";
     }
 }
