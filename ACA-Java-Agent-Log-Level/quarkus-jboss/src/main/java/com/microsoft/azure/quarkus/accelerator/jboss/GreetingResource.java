@@ -1,4 +1,4 @@
-package com.microsoft.azure.quarkus.accelerator.log4j2;
+package com.microsoft.azure.quarkus.accelerator.jboss;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;

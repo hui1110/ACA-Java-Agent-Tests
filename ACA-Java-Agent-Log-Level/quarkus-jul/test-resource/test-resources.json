@@ -46,7 +46,7 @@
     },
     "projectName": {
       "type": "string",
-      "defaultValue": "quarkus-log4j2",
+      "defaultValue": "quarkus-jul",
       "metadata": {
         "description": "Specifies the name of the container app."
       }
@@ -60,7 +60,7 @@
     },
     "tagName": {
       "type": "string",
-      "defaultValue": "quarkus-log4j2",
+      "defaultValue": "quarkus-jul",
       "metadata": {
         "description": "Specifies the name of the container app."
       }
