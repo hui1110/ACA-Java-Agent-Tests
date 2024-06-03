@@ -1,6 +1,7 @@
 {
-  "loggerLevelConfigurator": {
-    "loggerLevelSettings": [
+  "enabled": true,
+  "logging": {
+    "loggerSettings": [
       {
         "level": "warn",
         "logger": "root"

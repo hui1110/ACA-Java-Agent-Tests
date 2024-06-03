@@ -29,8 +29,8 @@ RUN apk add wget unzip tcpdump ngrep iproute2-ss bind-tools
 
 COPY ./ /app-service
 WORKDIR /app-service
-RUN wget https://huiagentaccount.blob.core.windows.net/aca-agent/agent-0.0.1-SNAPSHOT.jar
+RUN wget https://acaagentaccount.blob.core.windows.net/agent/ja-agent-0.0.1-SNAPSHOT.jar -O agent-0.0.1-SNAPSHOT.jar
 ADD quarkus-log-level.json /app-service/log-level.json
 
 ENTRYPOINT ["sh", "-c"]
-CMD ["java -javaagent:agent-0.0.1-SNAPSHOT.jar -Dja.config.file=log-level.json -Xms256m -Xmx256m -jar /app-service/app.jar"]
+CMD ["java -javaagent:agent-0.0.1-SNAPSHOT.jar -DK8SE_JAVA_AGENT_CONFIG_FILE=log-level.json -Xms256m -Xmx256m -jar /app-service/app.jar"]

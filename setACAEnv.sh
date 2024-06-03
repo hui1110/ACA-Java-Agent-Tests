@@ -1,1 +1,1 @@
-export CATALINA_OPTS="$CATALINA_OPTS -javaagent:/usr/local/tomcat/agent/agent.jar  -Dja.config.file=/usr/local/tomcat/agent/spring-log-level.json"
+export CATALINA_OPTS="$CATALINA_OPTS -javaagent:/usr/local/tomcat/agent/agent.jar  -DK8SE_JAVA_AGENT_CONFIG_FILE=/usr/local/tomcat/agent/spring-log-level.json"

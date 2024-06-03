@@ -1,10 +1,7 @@
 {
-  "loggerLevelConfigurator": {
-    "loggerLevelSettings": [
-      {
-        "level": "warn",
-        "logger": "root"
-      },
+  "enabled": true,
+  "logging": {
+    "loggerSettings": [
       {
         "level": "debug",
         "logger": "com.microsoft.azure.spring.boot.accelerator.jul.controller.HelloController"

@@ -16,7 +16,6 @@ echo '---Quarkus logback resource group created---'
 az deployment group create --name arm-deployment --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --template-file test-resource/test-resources.json --parameters projectName=$PROJECT_NAME tagName=$PROJECT_NAME_JAVA_11_ACA dockerfile_name=$ACA_DOCKERFILE_NAME
 echo '---Quarkus logback Java 11 ACA image created---'
 
-sleep 60
 export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --name app-$QUARKUS_LOGBACK_RESOURCE_GROUP --query properties.configuration.ingress.fqdn --output tsv)
 curl $APPLICATION_URL/hello
 echo '---Quarkus logback Java 11 ACA application debug API access---'
@@ -34,7 +33,6 @@ echo -e "\\e[33m----------Quarkus logback Java 11 ACA test done------------\\e[0
 az deployment group create --name arm-deployment --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --template-file test-resource/test-resources.json --parameters projectName=$PROJECT_NAME tagName=$PROJECT_NAME_JAVA_17_ACA dockerfile_name=$ACA_DOCKERFILE_NAME
 echo '---Quarkus logback Java 17 ACA image created---'
 
-ssleep 60
 export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --name app-$QUARKUS_LOGBACK_RESOURCE_GROUP --query properties.configuration.ingress.fqdn --output tsv)
 curl $APPLICATION_URL/hello
 echo '---Quarkus logback Java 17 ACA application debug API access---'
@@ -52,7 +50,6 @@ echo -e "\\e[33m----------Quarkus logback Java 17 ACA test done------------\\e[0
 az deployment group create --name arm-deployment --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --template-file test-resource/test-resources.json --parameters projectName=$PROJECT_NAME tagName=$PROJECT_NAME_JAVA_21_ACA dockerfile_name=$ACA_DOCKERFILE_NAME
 echo '---Quarkus logback Java 21 ACA image created---'
 
-sleep 60
 export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --name app-$QUARKUS_LOGBACK_RESOURCE_GROUP --query properties.configuration.ingress.fqdn --output tsv)
 curl $APPLICATION_URL/hello
 echo '---Quarkus logback Java 21 ACA application debug API access---'
