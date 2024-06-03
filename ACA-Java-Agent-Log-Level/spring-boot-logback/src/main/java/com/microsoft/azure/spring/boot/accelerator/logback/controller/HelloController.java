@@ -12,8 +12,8 @@ public class HelloController {
 
     @GetMapping("/hello")
     public String hello() {
-        LOGGER.debug("hello world");
-        return "Hello world, spring-boot-logback!";
+        LOGGER.debug("spring-boot-logback");
+        return "Hello, spring-boot-logback!";
     }
 
 }

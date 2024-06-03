@@ -17,11 +17,11 @@ echo '---Start creating the Quarkus logback Java 11 ACA image---'
 az deployment group create --name arm-deployment --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --template-file test-resource/test-resources.json --parameters projectName=$PROJECT_NAME tagName=$PROJECT_NAME_JAVA_11_ACA dockerfile_name=$ACA_DOCKERFILE_NAME
 echo '---Quarkus logback Java 11 ACA image created---'
 
-export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --name app-$QUARKUS_LOGBACK_RESOURCE_GROUP --query properties.configuration.ingress.fqdn --output tsv)
+export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --name app-$PROJECT_NAME_JAVA_11_ACA --query properties.configuration.ingress.fqdn --output tsv)
 curl $APPLICATION_URL/hello
 echo '---Quarkus logback Java 11 ACA application debug API access---'
 
-if [ $(az containerapp logs show --name app-$PROJECT_NAME_JAVA_11_ACA --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --type console --tail 100 | grep "DEBUG" | wc -l) -gt 0 ]
+if [ $(az containerapp logs show --name app-$PROJECT_NAME_JAVA_11_ACA --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --type console --tail 100 | grep "quarkus-logback" | wc -l) -gt 0 ]
 then
    echo -e "\\e[34mQuarkus logback Java 11 ACA DEBUG log has output\\e[0m"
 else
@@ -35,11 +35,11 @@ echo '---Start creating the Quarkus logback Java 17 ACA image---'
 az deployment group create --name arm-deployment --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --template-file test-resource/test-resources.json --parameters projectName=$PROJECT_NAME tagName=$PROJECT_NAME_JAVA_17_ACA dockerfile_name=$ACA_DOCKERFILE_NAME
 echo '---Quarkus logback Java 17 ACA image created---'
 
-export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --name app-$QUARKUS_LOGBACK_RESOURCE_GROUP --query properties.configuration.ingress.fqdn --output tsv)
+export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --name app-$PROJECT_NAME_JAVA_17_ACA --query properties.configuration.ingress.fqdn --output tsv)
 curl $APPLICATION_URL/hello
 echo '---Quarkus logback Java 17 ACA application debug API access---'
 
-if [ $(az containerapp logs show --name app-$PROJECT_NAME_JAVA_17_ACA --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --type console --tail 100 | grep "DEBUG" | wc -l) -gt 0 ]
+if [ $(az containerapp logs show --name app-$PROJECT_NAME_JAVA_17_ACA --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --type console --tail 100 | grep "quarkus-logback" | wc -l) -gt 0 ]
 then
    echo -e "\\e[34mQuarkus logback Java 17 ACA DEBUG log has output\\e[0m"
 else
@@ -53,11 +53,11 @@ echo '---Start creating the Quarkus logback Java 21 ACA image---'
 az deployment group create --name arm-deployment --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --template-file test-resource/test-resources.json --parameters projectName=$PROJECT_NAME tagName=$PROJECT_NAME_JAVA_21_ACA dockerfile_name=$ACA_DOCKERFILE_NAME
 echo '---Quarkus logback Java 21 ACA image created---'
 
-export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --name app-$QUARKUS_LOGBACK_RESOURCE_GROUP --query properties.configuration.ingress.fqdn --output tsv)
+export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --name app-$PROJECT_NAME_JAVA_21_ACA --query properties.configuration.ingress.fqdn --output tsv)
 curl $APPLICATION_URL/hello
 echo '---Quarkus logback Java 21 ACA application debug API access---'
 
-if [ $(az containerapp logs show --name app-$PROJECT_NAME_JAVA_21_ACA --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --type console --tail 100 | grep "DEBUG" | wc -l) -gt 0 ]
+if [ $(az containerapp logs show --name app-$PROJECT_NAME_JAVA_21_ACA --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --type console --tail 100 | grep "quarkus-logback" | wc -l) -gt 0 ]
 then
    echo -e "\\e[34mQuarkus logback Java 21 ACA DEBUG log has output\\e[0m"
 else
