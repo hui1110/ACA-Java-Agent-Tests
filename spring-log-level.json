@@ -3,10 +3,6 @@
   "logging": {
     "loggerSettings": [
       {
-        "level": "warn",
-        "logger": "root"
-      },
-      {
         "level": "debug",
         "logger": "com.microsoft.azure.spring.accelerator.jul.controller.HelloController"
       },
