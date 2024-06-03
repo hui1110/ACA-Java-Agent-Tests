@@ -1,6 +1,6 @@
 echo 'Start to test ACA Java Agent in Quarkus logback...'
 export URL_PREFIX="https://"
-export QUARKUS_LOGBACK_RESOURCE_GROUP="quarkuslogback"
+export QUARKUS_LOGBACK_RESOURCE_GROUP="quarkuslogbackit"
 export PROJECT_NAME="quarkus-logback"
 export PROJECT_NAME_JAVA_11_ACA="quarkus-logback-11-aca"
 export PROJECT_NAME_JAVA_17_ACA="quarkus-logback-17-aca"

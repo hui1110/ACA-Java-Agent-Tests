@@ -18,8 +18,8 @@ echo '---Start creating the Spring Boot logback Java 8 ACA image---'
 az deployment group create --name arm-deployment --resource-group $SPRING_BOOT_LOGBACK_RESOURCE_GROUP --template-file test-resource/test-resources.json --parameters projectName=$PROJECT_NAME tagName=$PROJECT_NAME_JAVA_8_ACA dockerfile_name=$ACA_DOCKERFILE_NAME
 echo '---Spring Boot logback Java 8 ACA image created---'
 
-sleep 10
 export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $SPRING_BOOT_LOGBACK_RESOURCE_GROUP --name app-$PROJECT_NAME_JAVA_8_ACA --query properties.configuration.ingress.fqdn --output tsv)
+sleep 10
 curl $APPLICATION_URL/hello
 echo '---Spring Boot logback Java 8 ACA application debug API access---'
 
@@ -37,8 +37,8 @@ echo '---Start creating the Spring Boot logback Java 11 ACA image---'
 az deployment group create --name arm-deployment --resource-group $SPRING_BOOT_LOGBACK_RESOURCE_GROUP --template-file test-resource/test-resources.json --parameters projectName=$PROJECT_NAME tagName=$PROJECT_NAME_JAVA_11_ACA dockerfile_name=$ACA_DOCKERFILE_NAME
 echo '---Spring Boot logback Java 11 ACA image created---'
 
-sleep 10
 export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $SPRING_BOOT_LOGBACK_RESOURCE_GROUP --name app-$PROJECT_NAME_JAVA_11_ACA --query properties.configuration.ingress.fqdn --output tsv)
+sleep 10
 curl $APPLICATION_URL/hello
 echo '---Spring Boot logback Java 11 ACA application debug API access---'
 
@@ -56,8 +56,8 @@ echo '---Start creating the Spring Boot logback Java 17 ACA image---'
 az deployment group create --name arm-deployment --resource-group $SPRING_BOOT_LOGBACK_RESOURCE_GROUP --template-file test-resource/test-resources.json --parameters projectName=$PROJECT_NAME tagName=$PROJECT_NAME_JAVA_17_ACA dockerfile_name=$ACA_DOCKERFILE_NAME
 echo '---Spring Boot logback Java 17 ACA image created---'
 
-sleep 10
 export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $SPRING_BOOT_LOGBACK_RESOURCE_GROUP --name app-$PROJECT_NAME_JAVA_17_ACA --query properties.configuration.ingress.fqdn --output tsv)
+sleep 10
 curl $APPLICATION_URL/hello
 echo '---Spring Boot logback Java 17 ACA application debug API access---'
 
@@ -75,8 +75,8 @@ echo '---Start creating the Spring Boot logback Java 21 ACA image---'
 az deployment group create --name arm-deployment --resource-group $SPRING_BOOT_LOGBACK_RESOURCE_GROUP --template-file test-resource/test-resources.json --parameters projectName=$PROJECT_NAME tagName=$PROJECT_NAME_JAVA_21_ACA dockerfile_name=$ACA_DOCKERFILE_NAME
 echo '---Spring Boot logback Java 21 ACA image created---'
 
-sleep 10
 export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $SPRING_BOOT_LOGBACK_RESOURCE_GROUP --name app-$PROJECT_NAME_JAVA_21_ACA --query properties.configuration.ingress.fqdn --output tsv)
+sleep 10
 curl $APPLICATION_URL/hello
 echo '---Spring Boot logback Java 21 ACA application debug API access---'
 
