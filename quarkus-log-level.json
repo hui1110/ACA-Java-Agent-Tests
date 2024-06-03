@@ -4,11 +4,7 @@
     "loggerSettings": [
       {
         "level": "debug",
-        "logger": "com.microsoft.azure.quarkus.accelerator.jul.GreetingResource"
-      },
-      {
-        "level": "debug",
-        "logger": "com.microsoft.azure.quarkus.accelerator.log4j.GreetingResource"
+        "logger": "com.microsoft.azure.quarkus.accelerator.jboss.GreetingResource"
       },
       {
         "level": "debug",

@@ -18,7 +18,7 @@ az deployment group create --name arm-deployment --resource-group $SPRING_LOGBAC
 echo '---Spring logback Java 8 ACA image created---'
 
 export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $SPRING_LOGBACK_RESOURCE_GROUP --name app-$PROJECT_NAME_JAVA_8_ACA --query properties.configuration.ingress.fqdn --output tsv)
-sleep 10
+sleep 30
 curl $APPLICATION_URL/hello
 echo '---Spring logback Java 8 ACA application debug API access---'
 
@@ -36,7 +36,7 @@ az deployment group create --name arm-deployment --resource-group $SPRING_LOGBAC
 echo '---Spring logback Java 11 ACA image created---'
 
 export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $SPRING_LOGBACK_RESOURCE_GROUP --name app-$PROJECT_NAME_JAVA_11_ACA --query properties.configuration.ingress.fqdn --output tsv)
-sleep 10
+sleep 30
 curl $APPLICATION_URL/hello
 echo '---Spring logback Java 11 ACA application debug API access---'
 
@@ -54,7 +54,7 @@ az deployment group create --name arm-deployment --resource-group $SPRING_LOGBAC
 echo '---Spring logback Java 17 ACA image created---'
 
 export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $SPRING_LOGBACK_RESOURCE_GROUP --name app-$PROJECT_NAME_JAVA_17_ACA --query properties.configuration.ingress.fqdn --output tsv)
-sleep 10
+sleep 30
 curl $APPLICATION_URL/hello
 echo '---Spring logback Java 17 ACA application debug API access---'
 
@@ -72,7 +72,7 @@ az deployment group create --name arm-deployment --resource-group $SPRING_LOGBAC
 echo '---Spring logback Java 21 ACA image created---'
 
 export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $SPRING_LOGBACK_RESOURCE_GROUP --name app-$PROJECT_NAME_JAVA_21_ACA --query properties.configuration.ingress.fqdn --output tsv)
-sleep 10
+sleep 30
 curl $APPLICATION_URL/hello
 echo '---Spring logback Java 21 ACA application debug API access---'
 
