@@ -306,7 +306,7 @@
           ]
         },
         "template": {
-          "revisionSuffix": "[parameters('tagName')]",
+          "revisionSuffix": "revision",
           "containers": [
             {
               "name": "[parameters('containerAppName')]",
