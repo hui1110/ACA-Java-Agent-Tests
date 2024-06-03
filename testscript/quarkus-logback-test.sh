@@ -13,6 +13,7 @@ az group create -l eastus -n $QUARKUS_LOGBACK_RESOURCE_GROUP
 echo '---Quarkus logback resource group created---'
 
 # ------------------------Quarkus logback Java 11 ACA------------------------
+echo '---Start creating the Quarkus logback Java 11 ACA image---'
 az deployment group create --name arm-deployment --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --template-file test-resource/test-resources.json --parameters projectName=$PROJECT_NAME tagName=$PROJECT_NAME_JAVA_11_ACA dockerfile_name=$ACA_DOCKERFILE_NAME
 echo '---Quarkus logback Java 11 ACA image created---'
 
@@ -20,7 +21,7 @@ export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $QUARK
 curl $APPLICATION_URL/hello
 echo '---Quarkus logback Java 11 ACA application debug API access---'
 
-if [ $(az containerapp logs show --name app-$QUARKUS_LOGBACK_RESOURCE_GROUP --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --type console --tail 100 | grep "DEBUG" | wc -l) -gt 0 ]
+if [ $(az containerapp logs show --name app-$PROJECT_NAME_JAVA_11_ACA --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --type console --tail 100 | grep "DEBUG" | wc -l) -gt 0 ]
 then
    echo -e "\\e[34mQuarkus logback Java 11 ACA DEBUG log has output\\e[0m"
 else
@@ -30,6 +31,7 @@ fi
 echo -e "\\e[33m----------Quarkus logback Java 11 ACA test done------------\\e[0m"
 
 # ------------------------Quarkus logback Java 17 ACA------------------------
+echo '---Start creating the Quarkus logback Java 17 ACA image---'
 az deployment group create --name arm-deployment --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --template-file test-resource/test-resources.json --parameters projectName=$PROJECT_NAME tagName=$PROJECT_NAME_JAVA_17_ACA dockerfile_name=$ACA_DOCKERFILE_NAME
 echo '---Quarkus logback Java 17 ACA image created---'
 
@@ -37,7 +39,7 @@ export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $QUARK
 curl $APPLICATION_URL/hello
 echo '---Quarkus logback Java 17 ACA application debug API access---'
 
-if [ $(az containerapp logs show --name app-$QUARKUS_LOGBACK_RESOURCE_GROUP --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --type console --tail 100 | grep "DEBUG" | wc -l) -gt 0 ]
+if [ $(az containerapp logs show --name app-$PROJECT_NAME_JAVA_17_ACA --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --type console --tail 100 | grep "DEBUG" | wc -l) -gt 0 ]
 then
    echo -e "\\e[34mQuarkus logback Java 17 ACA DEBUG log has output\\e[0m"
 else
@@ -47,6 +49,7 @@ fi
 echo -e "\\e[33m----------Quarkus logback Java 17 ACA test done------------\\e[0m"
 
 # ------------------------Quarkus logback Java 21 ACA------------------------
+echo '---Start creating the Quarkus logback Java 21 ACA image---'
 az deployment group create --name arm-deployment --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --template-file test-resource/test-resources.json --parameters projectName=$PROJECT_NAME tagName=$PROJECT_NAME_JAVA_21_ACA dockerfile_name=$ACA_DOCKERFILE_NAME
 echo '---Quarkus logback Java 21 ACA image created---'
 
@@ -54,7 +57,7 @@ export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $QUARK
 curl $APPLICATION_URL/hello
 echo '---Quarkus logback Java 21 ACA application debug API access---'
 
-if [ $(az containerapp logs show --name app-$QUARKUS_LOGBACK_RESOURCE_GROUP --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --type console --tail 100 | grep "DEBUG" | wc -l) -gt 0 ]
+if [ $(az containerapp logs show --name app-$PROJECT_NAME_JAVA_21_ACA --resource-group $QUARKUS_LOGBACK_RESOURCE_GROUP --type console --tail 100 | grep "DEBUG" | wc -l) -gt 0 ]
 then
    echo -e "\\e[34mQuarkus logback Java 21 ACA DEBUG log has output\\e[0m"
 else
