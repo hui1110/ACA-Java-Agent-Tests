@@ -15,7 +15,7 @@ public class GreetingResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
-        logger.log(Level.DEBUG, "Hello world!");
+        logger.log(Level.DEBUG, "quarkus-jboss-sample");
         return "Hello, quarkus-jboss!";
     }
 
