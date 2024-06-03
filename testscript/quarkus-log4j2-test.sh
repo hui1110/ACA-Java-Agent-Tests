@@ -1,6 +1,6 @@
 echo 'Start to test ACA Java Agent in Quarkus log4j2...'
 export URL_PREFIX="https://"
-export QUARKUS_LOG4J2_RESOURCE_GROUP="quarkuslog4j2"
+export QUARKUS_LOG4J2_RESOURCE_GROUP="quarkuslog4j2it"
 export PROJECT_NAME="quarkus-log4j2"
 export PROJECT_NAME_JAVA_11_ACA="quarkus-log4j2-11-aca"
 export PROJECT_NAME_JAVA_17_ACA="quarkus-log4j2-17-aca"
@@ -13,6 +13,7 @@ az group create -l eastus -n $QUARKUS_LOG4J2_RESOURCE_GROUP
 echo '---Quarkus log4j2 resource group created---'
 
 # ------------------------Quarkus log4j2 Java 11 ACA------------------------
+echo '---Start creating the Quarkus log4j2 Java 11 ACA image---'
 az deployment group create --name arm-deployment --resource-group $QUARKUS_LOG4J2_RESOURCE_GROUP --template-file test-resource/test-resources.json --parameters projectName=$PROJECT_NAME tagName=$PROJECT_NAME_JAVA_11_ACA dockerfile_name=$ACA_DOCKERFILE_NAME
 echo '---Quarkus log4j2 Java 11 ACA image created---'
 
@@ -30,6 +31,7 @@ fi
 echo -e "\\e[33m----------Quarkus log4j2 Java 11 ACA test done------------\\e[0m"
 
 # ------------------------Quarkus log4j2 Java 17 ACA------------------------
+echo '---Start creating the Quarkus log4j2 Java 17 ACA image---'
 az deployment group create --name arm-deployment --resource-group $QUARKUS_LOG4J2_RESOURCE_GROUP --template-file test-resource/test-resources.json --parameters projectName=$PROJECT_NAME tagName=$PROJECT_NAME_JAVA_17_ACA dockerfile_name=$ACA_DOCKERFILE_NAME
 echo '---Quarkus log4j2 Java 17 ACA image created---'
 
@@ -47,6 +49,7 @@ fi
 echo -e "\\e[33m----------Quarkus log4j2 Java 17 ACA test done------------\\e[0m"
 
 # ------------------------Quarkus log4j2 Java 21 ACA------------------------
+echo '---Start creating the Quarkus log4j2 Java 21 ACA image---'
 az deployment group create --name arm-deployment --resource-group $QUARKUS_LOG4J2_RESOURCE_GROUP --template-file test-resource/test-resources.json --parameters projectName=$PROJECT_NAME tagName=$PROJECT_NAME_JAVA_21_ACA dockerfile_name=$ACA_DOCKERFILE_NAME
 echo '---Quarkus log4j2 Java 21 ACA image created---'
 
