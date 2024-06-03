@@ -1,6 +1,6 @@
 echo 'Start to test ACA Java Agent in Spring Boot log4j2...'
 export URL_PREFIX="https://"
-export SPRING_BOOT_LOG4J2_RESOURCE_GROUP="springbootlog4j2it"
+export SPRING_BOOT_LOG4J2_RESOURCE_GROUP="springbootlog4j2"
 export PROJECT_NAME="spring-boot-log4j2"
 export PROJECT_NAME_JAVA_8_ACA="spring-boot-log4j2-8-aca"
 export PROJECT_NAME_JAVA_11_ACA="spring-boot-log4j2-11-aca"
@@ -23,7 +23,7 @@ export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $SPRIN
 curl $APPLICATION_URL/hello
 echo '---Spring Boot log4j2 Java 8 ACA application debug API access---'
 
-if [ $(az containerapp logs show --name app-$PROJECT_NAME_JAVA_8_ACA --resource-group $SPRING_BOOT_LOG4J2_RESOURCE_GROUP --type console --tail 100 | grep "spring-boot-log4j2" | wc -l) -gt 0 ]
+if [ $(az containerapp logs show --name app-$PROJECT_NAME_JAVA_8_ACA --resource-group $SPRING_BOOT_LOG4J2_RESOURCE_GROUP --type console --tail 100 | grep "spring-boot-log4j2-sample" | wc -l) -gt 0 ]
 then
    echo -e "\\e[34mSpring Boot log4j2 Java 8 ACA DEBUG log has output\\e[0m"
 else
@@ -42,7 +42,7 @@ export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $SPRIN
 curl $APPLICATION_URL/hello
 echo '---Spring Boot log4j2 Java 11 ACA application debug API access---'
 
-if [ $(az containerapp logs show --name app-$PROJECT_NAME_JAVA_11_ACA --resource-group $SPRING_BOOT_LOG4J2_RESOURCE_GROUP --type console --tail 100 | grep "spring-boot-log4j2" | wc -l) -gt 0 ]
+if [ $(az containerapp logs show --name app-$PROJECT_NAME_JAVA_11_ACA --resource-group $SPRING_BOOT_LOG4J2_RESOURCE_GROUP --type console --tail 100 | grep "spring-boot-log4j2-sample" | wc -l) -gt 0 ]
 then
    echo -e "\\e[34mSpring Boot log4j2 Java 11 ACA DEBUG log has output\\e[0m"
 else
@@ -61,7 +61,7 @@ export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $SPRIN
 curl $APPLICATION_URL/hello
 echo '---Spring Boot log4j2 Java 17 ACA application debug API access---'
 
-if [ $(az containerapp logs show --name app-$PROJECT_NAME_JAVA_17_ACA --resource-group $SPRING_BOOT_LOG4J2_RESOURCE_GROUP --type console --tail 100 | grep "spring-boot-log4j2" | wc -l) -gt 0 ]
+if [ $(az containerapp logs show --name app-$PROJECT_NAME_JAVA_17_ACA --resource-group $SPRING_BOOT_LOG4J2_RESOURCE_GROUP --type console --tail 100 | grep "spring-boot-log4j2-sample" | wc -l) -gt 0 ]
 then
    echo -e "\\e[34mSpring Boot log4j2 Java 17 ACA DEBUG log has output\\e[0m"
 else
@@ -80,7 +80,7 @@ export APPLICATION_URL=$URL_PREFIX$(az containerapp show --resource-group $SPRIN
 curl $APPLICATION_URL/hello
 echo '---Spring Boot log4j2 Java 21 ACA application debug API access---'
 
-if [ $(az containerapp logs show --name app-$PROJECT_NAME_JAVA_21_ACA --resource-group $SPRING_BOOT_LOG4J2_RESOURCE_GROUP --type console --tail 100 | grep "spring-boot-log4j2" | wc -l) -gt 0 ]
+if [ $(az containerapp logs show --name app-$PROJECT_NAME_JAVA_21_ACA --resource-group $SPRING_BOOT_LOG4J2_RESOURCE_GROUP --type console --tail 100 | grep "spring-boot-log4j2-sample" | wc -l) -gt 0 ]
 then
    echo -e "\\e[34mSpring Boot log4j2 Java 21 ACA DEBUG log has output\\e[0m"
 else

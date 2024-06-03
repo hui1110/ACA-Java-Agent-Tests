@@ -15,7 +15,7 @@ public class GreetingResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
-        logger.debug("quarkus-log4j2");
+        logger.debug("quarkus-log4j2-sample");
         return "Hello, quarkus-log4j2";
     }
 
